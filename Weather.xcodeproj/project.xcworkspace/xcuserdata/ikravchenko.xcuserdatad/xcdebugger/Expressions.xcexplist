@@ -3,18 +3,27 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Weather.ViewController.parser (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;, didEndElement : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, namespaceURI : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, qualifiedName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; ():ViewController.swift">
+         contextName = "Weather.ViewController.(parserDidEndDocument (Weather.ViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ()).(closure #1):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ():ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Weather.ViewController.refreshClicked (Weather.ViewController)(Swift.AnyObject) -&gt; ():ViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "elementName">
+               value = "weatherEntries">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ():ViewController.swift">
+         contextName = "Weather.ViewController.parser (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;, didEndElement : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, namespaceURI : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, qualifiedName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; ():ViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "weatherEntries.get(0)">
+               value = "weatherEntries.count">
+            </PersistentString>
+            <PersistentString
+               value = "elementName">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -9,22 +9,20 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController, NSXMLParserDelegate {
+class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDataSource {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    @IBAction func refreshClicked(sender : AnyObject) {
         downloadWeather()
     }
     
-    override func loadView() {
-        var tableView = UITableView()
-        self.view = tableView;
-    }
-    
     override func viewDidLoad() {
+        println("View Did Load")
         super.viewDidLoad()
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        downloadWeather()
     }
 
     func downloadWeather() {
@@ -47,11 +45,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
             if !parser.parse() {
                 println("XML Error")
             }
-            dispatch_async(dispatch_get_main_queue(), {
-//                self.tableData = results
-//                self.appsTableView.reloadData()
-                })
-            })
+        })
         task.resume()
     }
     
@@ -60,7 +54,9 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         var to: String?
         var name: String?
         var temperature: Float?
-        var isWarm : Bool?
+        func isWarm () -> Bool {
+            return temperature > 15;
+        }
     }
     
     var current: WeatherEntry?
@@ -68,6 +64,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
     func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!,attributes attributeDict: NSDictionary!) {
         if (elementName == "time") {
             current = WeatherEntry()
+            weatherEntries.append(current!)
             current!.from = attributeDict["from"] as NSString
             current!.to = attributeDict["to"] as NSString
         } else if (elementName == "symbol") {
@@ -77,27 +74,48 @@ class ViewController: UIViewController, NSXMLParserDelegate {
         } else if (elementName == "temperature") {
             if (current != nil) {
                 current!.temperature = attributeDict["value"]?.floatValue
-                current!.isWarm = current!.temperature? > 15
             }
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
-        if (elementName == "time" && current != nil) {
-            weatherEntries.append(current!)
-        }
-    }
-    
     func parserDidEndDocument(parser: NSXMLParser!) {
-//        for  w in weatherEntries {
-//            println(w.name)
-//            println(w.from)
-//            println(w.to)
-//            println(w.temperature)
-//            println(w.isWarm)
-//        }
+        for  w in weatherEntries {
+            println(w.name)
+            println(w.from)
+            println(w.to)
+            println(w.temperature)
+            println(w.isWarm())
+        }
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })
     }
     
+    func numberOfSections() -> Int {
+        return 1;
+    }
+    
+    func numberOfRowsInSection(section: Int) -> Int {
+        return weatherEntries.count;
+    }
+    
+    let REUSE_IDENTIFIER = "weather_table_cell"
+    
+    func cellForRowAtIndexPath(indexPath: NSIndexPath!) -> UITableViewCell! {
+        var cell = tableView.dequeueReusableCellWithIdentifier(REUSE_IDENTIFIER) as UITableViewCell
+        if (cell == nil) {
+            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
+        }
+        var entry = weatherEntries[indexPath.row]
+        cell.textLabel.text = "From: \(entry.from) to: \(entry.to)"
+        cell.detailTextLabel.text = "\(entry.name), temperature:\(entry.temperature)"
+
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        println("Row clicled at \(indexPath.row)")
+    }
     
 }
 
