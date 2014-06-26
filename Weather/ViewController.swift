@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDataSource {
+class ViewController: UITableViewController, NSXMLParserDelegate {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
     
@@ -20,8 +20,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
     
     override func viewDidLoad() {
         println("View Did Load")
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
         downloadWeather()
         super.viewDidLoad()
     }
@@ -90,25 +88,25 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
         })
     }
     
-    func numberOfSections() -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         return 1;
     }
     
-    func numberOfRowsInSection(section: Int) -> Int {
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return weatherEntries.count;
     }
     
-    func cellForRowAtIndexPath(indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let REUSE_IDENTIFIER = "weather_table_cell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(REUSE_IDENTIFIER) as UITableViewCell
-        if (cell == nil) {
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
-        }
+//        var cell = tableView?.dequeueReusableCellWithIdentifier(REUSE_IDENTIFIER) as UITableViewCell
+//        if (cell == nil) {
+          var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
+//        }
         var entry = weatherEntries[indexPath.row]
         cell.textLabel.text = "From: \(entry.from) to: \(entry.to)"
         cell.detailTextLabel.text = "\(entry.name), temperature:\(entry.temperature)"
-        cell.backgroundColor = UIColor.blackColor()
-
+        //cell.selectionStyle = entry.isWarm() ? .Blue : .None
+        
         return cell
     }
     
