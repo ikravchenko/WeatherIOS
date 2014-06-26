@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Weather.ViewController.parser (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;, didEndElement : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, namespaceURI : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, qualifiedName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "elementName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "weatherEntries.get(0)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Weather.ViewController.parser (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;, didStartElement : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, namespaceURI : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, qualifiedName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, attributes : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSDictionary&gt;) -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "attributeDict[&quot;from&quot;]?.stringValue()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
