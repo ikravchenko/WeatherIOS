@@ -20,8 +20,8 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
     override func viewDidLoad() {
         println("View Did Load")
         super.viewDidLoad()
-        tableView.dataSource = self;
-        tableView.delegate = self;
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
         downloadWeather()
     }
 
@@ -99,9 +99,8 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
         return weatherEntries.count;
     }
     
-    let REUSE_IDENTIFIER = "weather_table_cell"
-    
     func cellForRowAtIndexPath(indexPath: NSIndexPath!) -> UITableViewCell! {
+        let REUSE_IDENTIFIER = "weather_table_cell"
         var cell = tableView.dequeueReusableCellWithIdentifier(REUSE_IDENTIFIER) as UITableViewCell
         if (cell == nil) {
             cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
@@ -109,6 +108,7 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
         var entry = weatherEntries[indexPath.row]
         cell.textLabel.text = "From: \(entry.from) to: \(entry.to)"
         cell.detailTextLabel.text = "\(entry.name), temperature:\(entry.temperature)"
+        cell.backgroundColor = UIColor.blackColor()
 
         return cell
     }
