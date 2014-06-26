@@ -14,26 +14,24 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
     
     @IBAction func refreshClicked(sender : AnyObject) {
+        weatherEntries.removeAll(keepCapacity: false)
         downloadWeather()
     }
     
     override func viewDidLoad() {
         println("View Did Load")
-        super.viewDidLoad()
-        self.tableView.dataSource = self;
-        self.tableView.delegate = self;
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         downloadWeather()
+        super.viewDidLoad()
     }
 
     func downloadWeather() {
-        
-        // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
         var url: NSURL = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast?q=Bonn&mode=xml&APPID=7732b247cdb20b941ea963a87e8b8269")
         var session = NSURLSession.sharedSession()
         var task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             println("Task completed")
             if(error) {
-                // If there is an error in the web request, print it to the console
                 println(error.localizedDescription)
             }
             
@@ -79,13 +77,14 @@ class ViewController: UITableViewController, NSXMLParserDelegate, UITableViewDat
     }
     
     func parserDidEndDocument(parser: NSXMLParser!) {
-        for  w in weatherEntries {
-            println(w.name)
-            println(w.from)
-            println(w.to)
-            println(w.temperature)
-            println(w.isWarm())
-        }
+//        for  w in weatherEntries {
+//            println(w.name)
+//            println(w.from)
+//            println(w.to)
+//            println(w.temperature)
+//            println(w.isWarm())
+//        }
+        println("Weather entries count \(weatherEntries.count)")
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
         })
