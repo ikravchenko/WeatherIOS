@@ -8,12 +8,11 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class ViewController: UITableViewController, NSXMLParserDelegate {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
-    var db: DBManager?
-
     
     @IBAction func refreshClicked(sender : AnyObject) {
         weatherEntries.removeAll(keepCapacity: false)
@@ -21,12 +20,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func viewDidLoad() {
-        db = DBManager()
-        if db!.createDB() {
-            println("Db successfully created")
-        } else {
-            println("Not possible to create a db")
-        }
         downloadWeather()
         super.viewDidLoad()
     }
@@ -67,12 +60,25 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         } else if (elementName == "temperature") {
             if (current != nil) {
                 current!.temperature = attributeDict["value"]?.floatValue
+                current!.isWarm = attributeDict["value"]?.floatValue > 15
             }
         }
     }
     
     func parserDidEndDocument(parser: NSXMLParser!) {
         println("Weather entries count \(weatherEntries.count)")
+        var app = UIApplication.sharedApplication().delegate as AppDelegate
+        var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: app.managedObjectContext) as Weather
+        entry.id = 1
+        entry.from = "19:00"
+        entry.to = "20:00"
+        entry.name = "clowdy"
+        entry.temperature = 12.3
+        entry.isWarm = true
+        if !app.managedObjectContext.save(nil) {
+            println("Failed to save with core data")
+        }
+        
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
         })
@@ -96,7 +102,7 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         cell.textLabel.text = "From: \(entry.from) to: \(entry.to)"
         let temperature = NSString(format:"%.2f", entry.temperature!)
         cell.detailTextLabel.text = "\(entry.name), temperature:\(temperature)"
-        cell.accessoryType = entry.isWarm() ? .Checkmark : .None
+        cell.accessoryType = entry.isWarm! ? .Checkmark : .None
         
         return cell
     }

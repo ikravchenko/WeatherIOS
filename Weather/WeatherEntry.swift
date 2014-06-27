@@ -13,7 +13,5 @@ class WeatherEntry : NSObject {
     var to: String?
     var name: String?
     var temperature: Float?
-    func isWarm () -> Bool {
-        return temperature > 15;
-    }
+    var isWarm: Bool?
 }

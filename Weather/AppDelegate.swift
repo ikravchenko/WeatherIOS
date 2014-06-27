@@ -14,14 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        self.managedObjectContext
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -63,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If the model doesn't already exist, it is created from the application's model.
     var managedObjectModel: NSManagedObjectModel {
         if !_managedObjectModel {
-            let modelURL = NSBundle.mainBundle().URLForResource("Weather", withExtension: "momd")
+            let modelURL = NSBundle.mainBundle().URLForResource("WeatherModel", withExtension: "momd")
             _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)
         }
         return _managedObjectModel!
