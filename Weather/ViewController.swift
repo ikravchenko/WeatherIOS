@@ -98,14 +98,15 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let REUSE_IDENTIFIER = "weather_table_cell"
-//        var cell = tableView?.dequeueReusableCellWithIdentifier(REUSE_IDENTIFIER) as UITableViewCell
-//        if (cell == nil) {
-          var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
-//        }
+        var cell: UITableViewCell! = tableView?.dequeueReusableCellWithIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
+        if (cell == nil) {
+            var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
+        }
         var entry = weatherEntries[indexPath.row]
         cell.textLabel.text = "From: \(entry.from) to: \(entry.to)"
-        cell.detailTextLabel.text = "\(entry.name), temperature:\(entry.temperature)"
-        //cell.selectionStyle = entry.isWarm() ? .Blue : .None
+        let temperature = NSString(format:"%.2f", entry.temperature!)
+        cell.detailTextLabel.text = "\(entry.name), temperature:\(temperature)"
+        cell.accessoryType = entry.isWarm() ? .Checkmark : .None
         
         return cell
     }
