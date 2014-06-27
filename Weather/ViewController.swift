@@ -12,6 +12,8 @@ import Foundation
 class ViewController: UITableViewController, NSXMLParserDelegate {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
+    var db: DBManager?
+
     
     @IBAction func refreshClicked(sender : AnyObject) {
         weatherEntries.removeAll(keepCapacity: false)
@@ -19,7 +21,12 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func viewDidLoad() {
-        println("View Did Load")
+        db = DBManager()
+        if db!.createDB() {
+            println("Db successfully created")
+        } else {
+            println("Not possible to create a db")
+        }
         downloadWeather()
         super.viewDidLoad()
     }
@@ -65,13 +72,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     func parserDidEndDocument(parser: NSXMLParser!) {
-//        for  w in weatherEntries {
-//            println(w.name)
-//            println(w.from)
-//            println(w.to)
-//            println(w.temperature)
-//            println(w.isWarm())
-//        }
         println("Weather entries count \(weatherEntries.count)")
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
