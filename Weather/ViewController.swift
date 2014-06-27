@@ -44,17 +44,7 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         })
         task.resume()
     }
-    
-    class WeatherEntry : NSObject {
-        var from: String?
-        var to: String?
-        var name: String?
-        var temperature: Float?
-        func isWarm () -> Bool {
-            return temperature > 15;
-        }
-    }
-    
+        
     var current: WeatherEntry?
     
     func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!,attributes attributeDict: NSDictionary!) {
@@ -112,7 +102,10 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        println("Row clicled at \(indexPath.row)")
+        var sb = UIStoryboard(name: "Main", bundle: nil)
+        var vc : DetailsController! = sb.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
+        vc.entry = weatherEntries[indexPath.row]
+        navigationController.pushViewController(vc, animated: true)
     }
     
 }
