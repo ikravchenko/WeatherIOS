@@ -14,6 +14,7 @@
 		CD5E6F4F195AF2790015A01E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD5E6F4E195AF2790015A01E /* Images.xcassets */; };
 		CD5E6F5B195AF2790015A01E /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5E6F5A195AF2790015A01E /* WeatherTests.swift */; };
 		CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5E6F64195AF4E40015A01E /* Foundation.framework */; };
+		CDC6E1A9195D565000CC5F2B /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC6E1A8195D565000CC5F2B /* DetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		CD5E6F5A195AF2790015A01E /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		CD5E6F64195AF4E40015A01E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDBD3CBD195C17B000D78638 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		CDC6E1A8195D565000CC5F2B /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				CD5E6F4E195AF2790015A01E /* Images.xcassets */,
 				CD5E6F46195AF2780015A01E /* Weather.xcdatamodeld */,
 				CD5E6F42195AF2780015A01E /* Supporting Files */,
+				CDC6E1A8195D565000CC5F2B /* DetailsController.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC6E1A9195D565000CC5F2B /* DetailsController.swift in Sources */,
 				CD5E6F4A195AF2790015A01E /* ViewController.swift in Sources */,
 				CD5E6F48195AF2790015A01E /* Weather.xcdatamodeld in Sources */,
 				CD5E6F45195AF2780015A01E /* AppDelegate.swift in Sources */,
