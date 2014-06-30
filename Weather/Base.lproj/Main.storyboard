@@ -49,7 +49,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dFJ-PD-1KU">
                             <connections>
-                                <segue destination="hKR-MU-hiD" kind="push" id="aSg-as-0z6"/>
+                                <action selector="createEntryClicked:" destination="vFk-tg-s65" id="ylt-D6-pnm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

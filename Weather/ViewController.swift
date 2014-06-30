@@ -13,17 +13,30 @@ import CoreData
 class ViewController: UITableViewController, NSXMLParserDelegate {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
-    var context: NSManagedObjectContext!
     var fetchedObjects: Array<NSManagedObject> = Array<NSManagedObject>()
+    var context: NSManagedObjectContext!
+    
     
     @IBAction func refreshClicked(sender : AnyObject) {
         weatherEntries.removeAll(keepCapacity: false)
+        for o in fetchAllWeatherEntries() {
+            self.context.deleteObject(o)
+        }
         downloadWeather()
+    }
+    
+    @IBAction func createEntryClicked(sender : AnyObject) {
+        var sb = UIStoryboard(name: "Main", bundle: nil)
+        var vc : DetailsController! = sb.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
+        vc.masterControllerDelegate = self
+        vc.context = self.context
+        navigationController.pushViewController(vc, animated: true)
     }
     
     override func viewDidLoad() {
         var app = UIApplication.sharedApplication().delegate as AppDelegate
         context = app.managedObjectContext
+        reloadData()
         super.viewDidLoad()
     }
 
@@ -74,9 +87,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     
     func parserDidEndDocument(parser: NSXMLParser!) {
         println("Weather entries count \(weatherEntries.count)")
-        for o in fetchAllWeatherEntries() {
-            self.context.deleteObject(o)
-        }
         for we in weatherEntries {
             var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: self.context) as NSManagedObject
             entry.setValue(we.from, forKey: "from")
@@ -89,7 +99,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
                 println("Failed to save with core data: \(error?.localizedDescription)")
             }
         }
-        weatherEntries.removeAll(keepCapacity: false)
         
         reloadData()
     }
@@ -126,8 +135,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
                 self.tableView.reloadData()
             })
         }
-        
-
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
