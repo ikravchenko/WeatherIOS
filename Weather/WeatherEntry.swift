@@ -9,9 +9,14 @@
 import Foundation
 
 class WeatherEntry : NSObject {
-    var from: String?
-    var to: String?
+    var from: NSDate?
+    var to: NSDate
     var name: String?
     var temperature: Float?
     var isWarm: Bool?
+    
+    init() {
+        self.from = NSDate()
+        self.to = NSDate()
+    }
 }

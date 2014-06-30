@@ -26,43 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Weather/ViewController.swift"
-            timestampString = "425809575.417313"
+            timestampString = "425821886.112603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "parserDidEndDocument(_:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ()"
-                  moduleName = "Weather"
-                  urlString = "file:///Users/ikravchenko/dev/Weather/Weather/ViewController.swift"
-                  timestampString = "425576883.836185"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "1328">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ()"
-                  moduleName = "Weather"
-                  urlString = "file:///Users/ikravchenko/dev/Weather/Weather/ViewController.swift"
-                  timestampString = "425576883.836382"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "1592">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

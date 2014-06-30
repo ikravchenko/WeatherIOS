@@ -4,14 +4,9 @@
    <ContextStates>
       <ContextState
          contextName = "Weather.ViewController.parser (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;, didStartElement : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, namespaceURI : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, qualifiedName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, attributes : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSDictionary&gt;) -&gt; ():ViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "attributeDict[&quot;from&quot;]?.stringValue()">
-            </PersistentString>
-            <PersistentString
-               value = "attributeDict[&quot;value&quot;]?.floatValue &gt; 15">
-            </PersistentString>
-         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Weather.ViewController.viewDidLoad (Weather.ViewController)() -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
          contextName = "Weather.ViewController.tableView (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UITableView&gt;, didSelectRowAtIndexPath : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSIndexPath&gt;) -&gt; ():ViewController.swift">
@@ -25,6 +20,9 @@
          contextName = "Weather.DetailsController.viewDidAppear (Weather.DetailsController)(Swift.Bool) -&gt; ():DetailsController.swift">
       </ContextState>
       <ContextState
+         contextName = "Weather.ViewController.(parserDidEndDocument (Weather.ViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ()).(closure #1):ViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "Weather.ViewController.parser (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;, didEndElement : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, namespaceURI : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;, qualifiedName : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;) -&gt; ():ViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -34,12 +32,6 @@
                value = "elementName">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Weather.ViewController.(parserDidEndDocument (Weather.ViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ()).(closure #1):ViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "Weather.ViewController.viewDidLoad (Weather.ViewController)() -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
          contextName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ():ViewController.swift">

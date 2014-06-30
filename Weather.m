@@ -2,7 +2,7 @@
 //  Weather.m
 //  Weather
 //
-//  Created by Ivan Kravchenko on 27/06/14.
+//  Created by Ivan Kravchenko on 30/06/14.
 //  Copyright (c) 2014 DORMA. All rights reserved.
 //
 
@@ -12,10 +12,9 @@
 @implementation Weather
 
 @dynamic from;
-@dynamic to;
+@dynamic isWarm;
 @dynamic name;
 @dynamic temperature;
-@dynamic isWarm;
-@dynamic id;
+@dynamic to;
 
 @end

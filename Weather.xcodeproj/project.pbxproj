@@ -15,10 +15,10 @@
 		CD5E6F4F195AF2790015A01E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD5E6F4E195AF2790015A01E /* Images.xcassets */; };
 		CD5E6F5B195AF2790015A01E /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5E6F5A195AF2790015A01E /* WeatherTests.swift */; };
 		CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5E6F64195AF4E40015A01E /* Foundation.framework */; };
+		CD9157A719617149008971BF /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9157A619617149008971BF /* Weather.m */; };
 		CDD3F527195D968700218D7D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD3F526195D968700218D7D /* libsqlite3.dylib */; };
 		CDD3F52D195DB70D00218D7D /* WeatherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */; };
 		CDD3F52F195DB94500218D7D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD3F52E195DB94500218D7D /* CoreData.framework */; };
-		CDD3F532195DC4C000218D7D /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD3F531195DC4C000218D7D /* Weather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,13 +44,13 @@
 		CD5E6F59195AF2790015A01E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD5E6F5A195AF2790015A01E /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		CD5E6F64195AF4E40015A01E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD9157A519617149008971BF /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = SOURCE_ROOT; };
+		CD9157A619617149008971BF /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = SOURCE_ROOT; };
 		CDBD3CBD195C17B000D78638 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		CDD3F523195D91F300218D7D /* Weather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weather-Bridging-Header.h"; sourceTree = "<group>"; };
 		CDD3F526195D968700218D7D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CDD3F52C195DB70D00218D7D /* WeatherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherModel.xcdatamodel; sourceTree = "<group>"; };
 		CDD3F52E195DB94500218D7D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		CDD3F530195DC4C000218D7D /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = SOURCE_ROOT; };
-		CDD3F531195DC4C000218D7D /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +107,9 @@
 				CD5E6F42195AF2780015A01E /* Supporting Files */,
 				CD0A904E195D6092008B3055 /* WeatherEntry.swift */,
 				CDD3F523195D91F300218D7D /* Weather-Bridging-Header.h */,
+				CD9157A519617149008971BF /* Weather.h */,
+				CD9157A619617149008971BF /* Weather.m */,
 				CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */,
-				CDD3F530195DC4C000218D7D /* Weather.h */,
-				CDD3F531195DC4C000218D7D /* Weather.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -247,9 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9157A719617149008971BF /* Weather.m in Sources */,
 				CDD3F52D195DB70D00218D7D /* WeatherModel.xcdatamodeld in Sources */,
 				CD5E6F4A195AF2790015A01E /* ViewController.swift in Sources */,
-				CDD3F532195DC4C000218D7D /* Weather.m in Sources */,
 				CD5E6F45195AF2780015A01E /* AppDelegate.swift in Sources */,
 				CD0A9051195D7678008B3055 /* DetailsController.swift in Sources */,
 				CD0A904F195D6092008B3055 /* WeatherEntry.swift in Sources */,

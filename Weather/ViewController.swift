@@ -55,11 +55,15 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         if (elementName == "time") {
             current = WeatherEntry()
             weatherEntries.append(current!)
-            current!.from = attributeDict["from"] as NSString
-            current!.to = attributeDict["to"] as NSString
+            var formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            current!.from = formatter.dateFromString(attributeDict["from"] as String)
+            current!.to = formatter.dateFromString(attributeDict["to"] as String)
+            println(current!.from)
+            println(current!.to)
         } else if (elementName == "symbol") {
             if (current != nil) {
-                current!.name = attributeDict["name"] as NSString
+                current!.name = attributeDict["name"] as? String
             }
         } else if (elementName == "temperature") {
             if (current != nil) {
@@ -71,10 +75,8 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     
     func parserDidEndDocument(parser: NSXMLParser!) {
         println("Weather entries count \(weatherEntries.count)")
-        var i: Int = 0
         for we in weatherEntries {
             var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: self.context) as NSManagedObject
-            entry.setValue(i, forKey: "id")
             entry.setValue(we.from, forKey: "from")
             entry.setValue(we.to, forKey: "to")
             entry.setValue(we.name, forKey: "name")
@@ -83,8 +85,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
             var error: NSError?
             if !self.context.save(&error) {
                 println("Failed to save with core data: \(error?.localizedDescription)")
-            } else {
-                i++
             }
         }
         
@@ -101,15 +101,12 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     
     func reloadData() {
         let fetchRequest = NSFetchRequest()
-        // Edit the entity name as appropriate.
         let entity = NSEntityDescription.entityForName("Weather", inManagedObjectContext: self.context)
         fetchRequest.entity = entity
         
-        // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 1
         
-        // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "from", ascending: true)
         let sortDescriptors = [sortDescriptor]
         
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -136,9 +133,11 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         if (cell == nil) {
             var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
         }
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "dd-MM:HH:mm"
         var entry = fetchedObjects[indexPath.row]
-        var from = entry.valueForKey("from") as String
-        var to = entry.valueForKey("to") as String
+        var from = formatter.stringFromDate(entry.valueForKey("from") as NSDate)
+        var to = formatter.stringFromDate(entry.valueForKey("to") as NSDate)
         var name = entry.valueForKey("name") as String
         var t = entry.valueForKey("temperature") as Float
         var warm = entry.valueForKey("isWarm") as Bool

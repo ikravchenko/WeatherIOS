@@ -17,14 +17,14 @@ class DetailsController: UIViewController {
     @IBOutlet var timeFromText : UITextField
     @IBOutlet var timeToText : UITextField
     @IBOutlet var forecastText : UITextField
+    @IBOutlet var temperatureText : UITextField
     @IBOutlet var warmSwitch : UISwitch
     @IBOutlet var saveButton : UIButton
     @IBOutlet var deleteButton : UIButton
     
     @IBAction func entrySaved(sender: AnyObject) {
         var error: NSError?
-        entry.setValue(timeFromText.text, forKey: "from")
-        entry.setValue(timeToText.text, forKey: "to")
+        entry.setValue(forecastText.text, forKey: "name")
         entry.setValue(warmSwitch.on, forKey: "isWarm")
         if !context.save(&error) {
             println("Unable to save entry")
@@ -49,12 +49,13 @@ class DetailsController: UIViewController {
             return;
         }
         
-        
-        timeFromText.text = entry.valueForKey("from") as String
-        timeToText.text = entry.valueForKey("to") as String
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "dd-MM:HH:mm"
+        timeFromText.text = formatter.stringFromDate(entry.valueForKey("from") as NSDate)
+        timeToText.text = formatter.stringFromDate(entry.valueForKey("to") as NSDate)
         let temperature = NSString(format:"%.2f", entry.valueForKey("temperature") as Float)
-        var name = entry.valueForKey("name") as String
-        forecastText.text = "\(name), temperature: \(temperature)"
+        forecastText.text = entry.valueForKey("name") as String
+        temperatureText.text = temperature
         warmSwitch.setOn(entry.valueForKey("isWarm") as Bool, animated: true)
     }
 
