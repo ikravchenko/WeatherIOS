@@ -8,6 +8,9 @@
             <PersistentString
                value = "attributeDict[&quot;from&quot;]?.stringValue()">
             </PersistentString>
+            <PersistentString
+               value = "attributeDict[&quot;value&quot;]?.floatValue &gt; 15">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -34,6 +37,9 @@
       </ContextState>
       <ContextState
          contextName = "Weather.ViewController.(parserDidEndDocument (Weather.ViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ()).(closure #1):ViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Weather.ViewController.viewDidLoad (Weather.ViewController)() -&gt; ():ViewController.swift">
       </ContextState>
       <ContextState
          contextName = "Weather.ViewController.parserDidEndDocument (Weather.ViewController)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSXMLParser&gt;) -&gt; ():ViewController.swift">

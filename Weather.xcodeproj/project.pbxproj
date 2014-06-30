@@ -15,6 +15,10 @@
 		CD5E6F4F195AF2790015A01E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD5E6F4E195AF2790015A01E /* Images.xcassets */; };
 		CD5E6F5B195AF2790015A01E /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5E6F5A195AF2790015A01E /* WeatherTests.swift */; };
 		CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5E6F64195AF4E40015A01E /* Foundation.framework */; };
+		CDD3F527195D968700218D7D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD3F526195D968700218D7D /* libsqlite3.dylib */; };
+		CDD3F52D195DB70D00218D7D /* WeatherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */; };
+		CDD3F52F195DB94500218D7D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD3F52E195DB94500218D7D /* CoreData.framework */; };
+		CDD3F532195DC4C000218D7D /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD3F531195DC4C000218D7D /* Weather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,12 @@
 		CD5E6F5A195AF2790015A01E /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		CD5E6F64195AF4E40015A01E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDBD3CBD195C17B000D78638 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		CDD3F523195D91F300218D7D /* Weather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weather-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDD3F526195D968700218D7D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CDD3F52C195DB70D00218D7D /* WeatherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherModel.xcdatamodel; sourceTree = "<group>"; };
+		CDD3F52E195DB94500218D7D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CDD3F530195DC4C000218D7D /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = SOURCE_ROOT; };
+		CDD3F531195DC4C000218D7D /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD3F52F195DB94500218D7D /* CoreData.framework in Frameworks */,
+				CDD3F527195D968700218D7D /* libsqlite3.dylib in Frameworks */,
 				CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,6 +77,8 @@
 		CD5E6F36195AF2780015A01E = {
 			isa = PBXGroup;
 			children = (
+				CDD3F52E195DB94500218D7D /* CoreData.framework */,
+				CDD3F526195D968700218D7D /* libsqlite3.dylib */,
 				CDBD3CBC195C17B000D78638 /* Private */,
 				CD5E6F64195AF4E40015A01E /* Foundation.framework */,
 				CD5E6F41195AF2780015A01E /* Weather */,
@@ -92,6 +106,10 @@
 				CD5E6F4E195AF2790015A01E /* Images.xcassets */,
 				CD5E6F42195AF2780015A01E /* Supporting Files */,
 				CD0A904E195D6092008B3055 /* WeatherEntry.swift */,
+				CDD3F523195D91F300218D7D /* Weather-Bridging-Header.h */,
+				CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */,
+				CDD3F530195DC4C000218D7D /* Weather.h */,
+				CDD3F531195DC4C000218D7D /* Weather.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -229,7 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD3F52D195DB70D00218D7D /* WeatherModel.xcdatamodeld in Sources */,
 				CD5E6F4A195AF2790015A01E /* ViewController.swift in Sources */,
+				CDD3F532195DC4C000218D7D /* Weather.m in Sources */,
 				CD5E6F45195AF2780015A01E /* AppDelegate.swift in Sources */,
 				CD0A9051195D7678008B3055 /* DetailsController.swift in Sources */,
 				CD0A904F195D6092008B3055 /* WeatherEntry.swift in Sources */,
@@ -304,7 +324,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weather-Briding-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -341,7 +361,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weather-Briding-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -352,10 +372,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weather/Weather-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -364,10 +387,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weather/Weather-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -438,6 +463,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CDD3F52C195DB70D00218D7D /* WeatherModel.xcdatamodel */,
+			);
+			currentVersion = CDD3F52C195DB70D00218D7D /* WeatherModel.xcdatamodel */;
+			path = WeatherModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CD5E6F37195AF2780015A01E /* Project object */;
 }

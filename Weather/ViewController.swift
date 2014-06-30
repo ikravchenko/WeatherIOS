@@ -68,14 +68,16 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     func parserDidEndDocument(parser: NSXMLParser!) {
         println("Weather entries count \(weatherEntries.count)")
         var app = UIApplication.sharedApplication().delegate as AppDelegate
-        var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: app.managedObjectContext) as Weather
-        entry.id = 1
-        entry.from = "19:00"
-        entry.to = "20:00"
-        entry.name = "clowdy"
-        entry.temperature = 12.3
-        entry.isWarm = true
-        if !app.managedObjectContext.save(nil) {
+        var context = app.managedObjectContext
+        var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: context) as NSManagedObject
+        entry.setValue(1, forKey: "id")
+        entry.setValue("19:00", forKey: "from")
+        entry.setValue("20:00", forKey: "to")
+        entry.setValue("clowdy", forKey: "name")
+        entry.setValue(12.3, forKey: "temperature")
+        entry.setValue(true, forKey: "isWarm")
+        var error: NSError?
+        if !app.managedObjectContext.save(&error) {
             println("Failed to save with core data")
         }
         

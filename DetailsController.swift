@@ -33,8 +33,8 @@ class DetailsController: UIViewController {
         timeFromText.text = entry!.from
         timeToText.text = entry!.to
         let temperature = NSString(format:"%.2f", entry!.temperature!)
-        forecastText.text = "\(entry!.name), temperature:\(temperature)"
-        warmSwitch.setOn(entry!.isWarm(), animated: true)
+        forecastText.text = "\(entry!.name), temperature: \(temperature)"
+        warmSwitch.setOn(entry!.isWarm!, animated: true)
         
     }
 
