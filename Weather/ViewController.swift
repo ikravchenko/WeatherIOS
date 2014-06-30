@@ -88,6 +88,18 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
             }
         }
         
+        reloadData()
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return fetchedObjects.count
+    }
+    
+    func reloadData() {
         let fetchRequest = NSFetchRequest()
         // Edit the entity name as appropriate.
         let entity = NSEntityDescription.entityForName("Weather", inManagedObjectContext: self.context)
@@ -107,17 +119,15 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
             println(fo.valueForKey("name"))
         }
         
-        dispatch_async(dispatch_get_main_queue(), {
+        if NSThread.isMainThread() {
             self.tableView.reloadData()
-        })
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return fetchedObjects.count
+        } else {
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        }
+        
+
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -127,7 +137,7 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
             var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
         }
         var entry = fetchedObjects[indexPath.row]
-        var from : AnyObject! = entry.valueForKey("from") as String
+        var from = entry.valueForKey("from") as String
         var to = entry.valueForKey("to") as String
         var name = entry.valueForKey("name") as String
         var t = entry.valueForKey("temperature") as Float
@@ -143,7 +153,9 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var sb = UIStoryboard(name: "Main", bundle: nil)
         var vc : DetailsController! = sb.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
-        vc.entry = weatherEntries[indexPath.row]
+        vc.masterControllerDelegate = self
+        vc.context = self.context
+        vc.entry = fetchedObjects[indexPath.row]
         navigationController.pushViewController(vc, animated: true)
     }
     
