@@ -13,6 +13,8 @@ import CoreData
 class ViewController: UITableViewController, NSXMLParserDelegate {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
+    var context: NSManagedObjectContext!
+    var fetchedObjects: Array<NSManagedObject> = Array<NSManagedObject>()
     
     @IBAction func refreshClicked(sender : AnyObject) {
         weatherEntries.removeAll(keepCapacity: false)
@@ -20,6 +22,8 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func viewDidLoad() {
+        var app = UIApplication.sharedApplication().delegate as AppDelegate
+        context = app.managedObjectContext
         downloadWeather()
         super.viewDidLoad()
     }
@@ -67,18 +71,40 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     
     func parserDidEndDocument(parser: NSXMLParser!) {
         println("Weather entries count \(weatherEntries.count)")
-        var app = UIApplication.sharedApplication().delegate as AppDelegate
-        var context = app.managedObjectContext
-        var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: context) as NSManagedObject
-        entry.setValue(1, forKey: "id")
-        entry.setValue("19:00", forKey: "from")
-        entry.setValue("20:00", forKey: "to")
-        entry.setValue("clowdy", forKey: "name")
-        entry.setValue(12.3, forKey: "temperature")
-        entry.setValue(true, forKey: "isWarm")
-        var error: NSError?
-        if !app.managedObjectContext.save(&error) {
-            println("Failed to save with core data")
+        var i: Int = 0
+        for we in weatherEntries {
+            var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: self.context) as NSManagedObject
+            entry.setValue(i, forKey: "id")
+            entry.setValue(we.from, forKey: "from")
+            entry.setValue(we.to, forKey: "to")
+            entry.setValue(we.name, forKey: "name")
+            entry.setValue(we.temperature, forKey: "temperature")
+            entry.setValue(we.isWarm, forKey: "isWarm")
+            var error: NSError?
+            if !self.context.save(&error) {
+                println("Failed to save with core data: \(error?.localizedDescription)")
+            } else {
+                i++
+            }
+        }
+        
+        let fetchRequest = NSFetchRequest()
+        // Edit the entity name as appropriate.
+        let entity = NSEntityDescription.entityForName("Weather", inManagedObjectContext: self.context)
+        fetchRequest.entity = entity
+        
+        // Set the batch size to a suitable number.
+        fetchRequest.fetchBatchSize = 1
+        
+        // Edit the sort key as appropriate.
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        let sortDescriptors = [sortDescriptor]
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        var fetchError: NSError?
+        fetchedObjects = context.executeFetchRequest(fetchRequest, error: &fetchError) as Array<NSManagedObject>
+        for fo in fetchedObjects {
+            println(fo.valueForKey("name"))
         }
         
         dispatch_async(dispatch_get_main_queue(), {
@@ -87,11 +113,11 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        return 1;
+        return 1
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return weatherEntries.count;
+        return fetchedObjects.count
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -100,11 +126,16 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         if (cell == nil) {
             var  cell = UITableViewCell(style: .Subtitle, reuseIdentifier: REUSE_IDENTIFIER)
         }
-        var entry = weatherEntries[indexPath.row]
-        cell.textLabel.text = "From: \(entry.from) to: \(entry.to)"
-        let temperature = NSString(format:"%.2f", entry.temperature!)
-        cell.detailTextLabel.text = "\(entry.name), temperature:\(temperature)"
-        cell.accessoryType = entry.isWarm! ? .Checkmark : .None
+        var entry = fetchedObjects[indexPath.row]
+        var from : AnyObject! = entry.valueForKey("from") as String
+        var to = entry.valueForKey("to") as String
+        var name = entry.valueForKey("name") as String
+        var t = entry.valueForKey("temperature") as Float
+        var warm = entry.valueForKey("isWarm") as Bool
+        cell.textLabel.text = "From: \(from) to: \(to)"
+        let temperature = NSString(format:"%.2f", t)
+        cell.detailTextLabel.text = "\(name), temperature:\(temperature)"
+        cell.accessoryType = warm ? .Checkmark : .None
         
         return cell
     }
