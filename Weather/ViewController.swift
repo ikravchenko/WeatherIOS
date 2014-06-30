@@ -24,7 +24,6 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     override func viewDidLoad() {
         var app = UIApplication.sharedApplication().delegate as AppDelegate
         context = app.managedObjectContext
-        downloadWeather()
         super.viewDidLoad()
     }
 
@@ -75,6 +74,9 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
     
     func parserDidEndDocument(parser: NSXMLParser!) {
         println("Weather entries count \(weatherEntries.count)")
+        for o in fetchAllWeatherEntries() {
+            self.context.deleteObject(o)
+        }
         for we in weatherEntries {
             var entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: self.context) as NSManagedObject
             entry.setValue(we.from, forKey: "from")
@@ -87,6 +89,7 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
                 println("Failed to save with core data: \(error?.localizedDescription)")
             }
         }
+        weatherEntries.removeAll(keepCapacity: false)
         
         reloadData()
     }
@@ -99,7 +102,7 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         return fetchedObjects.count
     }
     
-    func reloadData() {
+    func fetchAllWeatherEntries() -> Array<NSManagedObject> {
         let fetchRequest = NSFetchRequest()
         let entity = NSEntityDescription.entityForName("Weather", inManagedObjectContext: self.context)
         fetchRequest.entity = entity
@@ -111,11 +114,11 @@ class ViewController: UITableViewController, NSXMLParserDelegate {
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         var fetchError: NSError?
-        fetchedObjects = context.executeFetchRequest(fetchRequest, error: &fetchError) as Array<NSManagedObject>
-        for fo in fetchedObjects {
-            println(fo.valueForKey("name"))
-        }
-        
+        return context.executeFetchRequest(fetchRequest, error: &fetchError) as Array<NSManagedObject>
+    }
+    
+    func reloadData() {
+        fetchedObjects = fetchAllWeatherEntries()
         if NSThread.isMainThread() {
             self.tableView.reloadData()
         } else {
