@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import CoreData
 
-class ViewController: UITableViewController, NSXMLParserDelegate {
+class MainController: UITableViewController, NSXMLParserDelegate {
     
     var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
     var fetchedObjects: Array<NSManagedObject> = Array<NSManagedObject>()
