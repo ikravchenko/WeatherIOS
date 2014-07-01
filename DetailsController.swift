@@ -25,7 +25,7 @@ class DetailsController: UIViewController {
     @IBAction func entrySaved(sender: AnyObject) {
         var error: NSError?
         if (entry == nil) {
-            entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: self.context) as NSManagedObject
+            entry = NSEntityDescription.insertNewObjectForEntityForName("Weather", inManagedObjectContext: self.context) as? NSManagedObject
             entry?.setValue(NSDate(), forKey: "from")
             entry?.setValue(NSDate(), forKey: "to")
             entry?.setValue((temperatureText.text as NSString).floatValue, forKey: "temperature")

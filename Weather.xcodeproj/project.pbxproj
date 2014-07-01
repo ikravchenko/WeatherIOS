@@ -17,7 +17,8 @@
 		CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5E6F64195AF4E40015A01E /* Foundation.framework */; };
 		CD9157A719617149008971BF /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9157A619617149008971BF /* Weather.m */; };
 		CD9157AA1961A4E4008971BF /* DevicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9157A91961A4E4008971BF /* DevicesController.swift */; };
-		CDD3F527195D968700218D7D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD3F526195D968700218D7D /* libsqlite3.dylib */; };
+		CD9157AD1961A88C008971BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9157AC1961A88C008971BF /* UIKit.framework */; };
+		CD9157AF1961A897008971BF /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9157AE1961A897008971BF /* CoreBluetooth.framework */; };
 		CDD3F52D195DB70D00218D7D /* WeatherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */; };
 		CDD3F52F195DB94500218D7D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD3F52E195DB94500218D7D /* CoreData.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CD0A904E195D6092008B3055 /* WeatherEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherEntry.swift; sourceTree = "<group>"; };
+		CD0A904E195D6092008B3055 /* WeatherEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherEntry.swift; path = Weather/WeatherEntry.swift; sourceTree = "<group>"; };
 		CD0A9050195D7678008B3055 /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsController.swift; path = ../DetailsController.swift; sourceTree = "<group>"; };
 		CD5E6F3F195AF2780015A01E /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5E6F43195AF2780015A01E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,9 +49,9 @@
 		CD9157A519617149008971BF /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = SOURCE_ROOT; };
 		CD9157A619617149008971BF /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = SOURCE_ROOT; };
 		CD9157A91961A4E4008971BF /* DevicesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesController.swift; sourceTree = "<group>"; };
-		CDBD3CBD195C17B000D78638 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		CD9157AC1961A88C008971BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD9157AE1961A897008971BF /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CDD3F523195D91F300218D7D /* Weather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weather-Bridging-Header.h"; sourceTree = "<group>"; };
-		CDD3F526195D968700218D7D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CDD3F52C195DB70D00218D7D /* WeatherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherModel.xcdatamodel; sourceTree = "<group>"; };
 		CDD3F52E195DB94500218D7D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -60,8 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9157AF1961A897008971BF /* CoreBluetooth.framework in Frameworks */,
+				CD9157AD1961A88C008971BF /* UIKit.framework in Frameworks */,
 				CDD3F52F195DB94500218D7D /* CoreData.framework in Frameworks */,
-				CDD3F527195D968700218D7D /* libsqlite3.dylib in Frameworks */,
 				CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,11 +81,9 @@
 		CD5E6F36195AF2780015A01E = {
 			isa = PBXGroup;
 			children = (
+				CD9157B01961A8A8008971BF /* Frameworks */,
+				CD9157AB1961A6A1008971BF /* Model */,
 				CD9157A81961A4BF008971BF /* BLE */,
-				CDD3F52E195DB94500218D7D /* CoreData.framework */,
-				CDD3F526195D968700218D7D /* libsqlite3.dylib */,
-				CDBD3CBC195C17B000D78638 /* Private */,
-				CD5E6F64195AF4E40015A01E /* Foundation.framework */,
 				CD5E6F41195AF2780015A01E /* Weather */,
 				CD5E6F57195AF2790015A01E /* WeatherTests */,
 				CD5E6F40195AF2780015A01E /* Products */,
@@ -108,10 +108,7 @@
 				CD5E6F4B195AF2790015A01E /* Main.storyboard */,
 				CD5E6F4E195AF2790015A01E /* Images.xcassets */,
 				CD5E6F42195AF2780015A01E /* Supporting Files */,
-				CD0A904E195D6092008B3055 /* WeatherEntry.swift */,
 				CDD3F523195D91F300218D7D /* Weather-Bridging-Header.h */,
-				CD9157A519617149008971BF /* Weather.h */,
-				CD9157A619617149008971BF /* Weather.m */,
 				CDD3F52B195DB70D00218D7D /* WeatherModel.xcdatamodeld */,
 			);
 			path = Weather;
@@ -150,13 +147,25 @@
 			name = BLE;
 			sourceTree = "<group>";
 		};
-		CDBD3CBC195C17B000D78638 /* Private */ = {
+		CD9157AB1961A6A1008971BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CDBD3CBD195C17B000D78638 /* DDXMLPrivate.h */,
+				CD0A904E195D6092008B3055 /* WeatherEntry.swift */,
+				CD9157A519617149008971BF /* Weather.h */,
+				CD9157A619617149008971BF /* Weather.m */,
 			);
-			name = Private;
-			path = ../KissXML/KissXML/Private;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CD9157B01961A8A8008971BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD9157AE1961A897008971BF /* CoreBluetooth.framework */,
+				CD9157AC1961A88C008971BF /* UIKit.framework */,
+				CDD3F52E195DB94500218D7D /* CoreData.framework */,
+				CD5E6F64195AF4E40015A01E /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
