@@ -38,6 +38,7 @@ class DevicesController : UITableViewController, CBCentralManagerDelegate {
     
     
     @IBAction func bleExplorationFinished (sender: AnyObject) {
+        self.centralManager.stopScan()
         self.navigationController.dismissModalViewControllerAnimated(true)
     }
     
@@ -95,6 +96,9 @@ class DevicesController : UITableViewController, CBCentralManagerDelegate {
     }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        
+        bleScanStarted(self)
+        var sc = storyboard.instantiateViewControllerWithIdentifier("ServicesController") as ServicesController
+        sc.peripheral = peripherals[indexPath.row].peripheral
+        self.navigationController.pushViewController(sc, animated: true)
     }
 }

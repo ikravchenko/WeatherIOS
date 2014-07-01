@@ -26,8 +26,7 @@ class MainController: UITableViewController, NSXMLParserDelegate {
     }
     
     @IBAction func createEntryClicked(sender : AnyObject) {
-        var sb = UIStoryboard(name: "Main", bundle: nil)
-        var vc : DetailsController! = sb.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
+        var vc : DetailsController! = storyboard.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
         vc.masterControllerDelegate = self
         vc.context = self.context
         navigationController.pushViewController(vc, animated: true)
@@ -160,8 +159,7 @@ class MainController: UITableViewController, NSXMLParserDelegate {
     }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        var sb = UIStoryboard(name: "Main", bundle: nil)
-        var vc : DetailsController! = sb.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
+        var vc : DetailsController! = storyboard.instantiateViewControllerWithIdentifier("DetailsController") as DetailsController
         vc.masterControllerDelegate = self
         vc.context = self.context
         vc.entry = fetchedObjects[indexPath.row]

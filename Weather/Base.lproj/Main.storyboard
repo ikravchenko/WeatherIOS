@@ -75,8 +75,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="ELR-zq-nG9" id="heA-mS-wVS"/>
-                            <outlet property="delegate" destination="5s3-jx-h6f" id="lQe-3Q-mct"/>
+                            <outlet property="dataSource" destination="ELR-zq-nG9" id="mDk-8d-6wv"/>
+                            <outlet property="delegate" destination="ELR-zq-nG9" id="YaO-7k-ah5"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Devices" id="5s3-jx-h6f" customClass="DevicesController" customModule="BLE">
@@ -95,6 +95,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO3-fm-ibE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-404" y="-53"/>
+        </scene>
+        <!--Services Controller-->
+        <scene sceneID="Y6N-XJ-2v2">
+            <objects>
+                <tableViewController storyboardIdentifier="ServicesController" id="smc-VD-4Ft" customClass="ServicesController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xdf-ze-4jg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" id="b3u-yP-lkH">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b3u-yP-lkH" id="MdT-G4-BWM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="smc-VD-4Ft" id="Dk9-I3-uth"/>
+                            <outlet property="delegate" destination="smc-VD-4Ft" id="IGP-cd-vW5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7A-88-xeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="-55"/>
+        </scene>
+        <!--Characterictics Controller-->
+        <scene sceneID="yDC-Yq-uKK">
+            <objects>
+                <tableViewController storyboardIdentifier="CharachteristicsController" id="uoU-ec-lYH" customClass="CharactericticsController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yy9-Tm-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" id="NNZ-FY-Ivs">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NNZ-FY-Ivs" id="b4T-5D-sGJ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uoU-ec-lYH" id="NLf-iW-zHM"/>
+                            <outlet property="delegate" destination="uoU-ec-lYH" id="KnO-vB-ZZ9"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="quj-Nu-ehV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="457" y="-56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mGZ-mt-Wzi">
