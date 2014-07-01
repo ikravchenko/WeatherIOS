@@ -11,7 +11,9 @@ import UIKit
 import CoreBluetooth
 
 class ServicesController : UITableViewController, CBPeripheralDelegate {
+    
     let HR_SERVICE = CBUUID.UUIDWithString("0000180D-0000-1000-8000-00805F9B34FB")
+    
     var peripheral: CBPeripheral!
     
     override func viewDidLoad() {
@@ -45,6 +47,13 @@ class ServicesController : UITableViewController, CBPeripheralDelegate {
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var cc = storyboard.instantiateViewControllerWithIdentifier("CharachteristicsController") as CharactericticsController
+        if (peripheral.services[indexPath.row] as CBService).UUID.isEqual(HR_SERVICE) {
+            cc.navigationItem.title = "Heart Rate Service"
+        } else {
+            cc.navigationItem.title = "\((peripheral.services[indexPath.row] as CBService).UUID)"
+        }
+        cc.peripheral = self.peripheral
+        cc.service = peripheral.services[indexPath.row] as CBService
         self.navigationController.pushViewController(cc, animated: true)
     }
     

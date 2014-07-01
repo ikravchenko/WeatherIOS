@@ -17,6 +17,7 @@
 		CD5E6F65195AF4E40015A01E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5E6F64195AF4E40015A01E /* Foundation.framework */; };
 		CD67582C1962DAED000C54D0 /* ServicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD67582B1962DAED000C54D0 /* ServicesController.swift */; };
 		CD67582E1962DAFD000C54D0 /* CharachteristicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD67582D1962DAFD000C54D0 /* CharachteristicsController.swift */; };
+		CD6758311962FCB2000C54D0 /* BLEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6758301962FCB2000C54D0 /* BLEUtils.m */; };
 		CD9157A719617149008971BF /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9157A619617149008971BF /* Weather.m */; };
 		CD9157AA1961A4E4008971BF /* DevicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9157A91961A4E4008971BF /* DevicesController.swift */; };
 		CD9157AD1961A88C008971BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9157AC1961A88C008971BF /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		CD5E6F64195AF4E40015A01E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD67582B1962DAED000C54D0 /* ServicesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesController.swift; sourceTree = "<group>"; };
 		CD67582D1962DAFD000C54D0 /* CharachteristicsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharachteristicsController.swift; sourceTree = "<group>"; };
+		CD67582F1962FBCD000C54D0 /* BLEUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEUtils.h; sourceTree = "<group>"; };
+		CD6758301962FCB2000C54D0 /* BLEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEUtils.m; sourceTree = "<group>"; };
 		CD9157A519617149008971BF /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = SOURCE_ROOT; };
 		CD9157A619617149008971BF /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = SOURCE_ROOT; };
 		CD9157A91961A4E4008971BF /* DevicesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesController.swift; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				CD9157A91961A4E4008971BF /* DevicesController.swift */,
 				CD67582B1962DAED000C54D0 /* ServicesController.swift */,
 				CD67582D1962DAFD000C54D0 /* CharachteristicsController.swift */,
+				CD67582F1962FBCD000C54D0 /* BLEUtils.h */,
+				CD6758301962FCB2000C54D0 /* BLEUtils.m */,
 			);
 			name = BLE;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				CD9157A719617149008971BF /* Weather.m in Sources */,
 				CDD3F52D195DB70D00218D7D /* WeatherModel.xcdatamodeld in Sources */,
 				CD67582E1962DAFD000C54D0 /* CharachteristicsController.swift in Sources */,
+				CD6758311962FCB2000C54D0 /* BLEUtils.m in Sources */,
 				CD5E6F4A195AF2790015A01E /* MainController.swift in Sources */,
 				CD67582C1962DAED000C54D0 /* ServicesController.swift in Sources */,
 				CD5E6F45195AF2780015A01E /* AppDelegate.swift in Sources */,
