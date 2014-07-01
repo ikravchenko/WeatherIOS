@@ -97,8 +97,20 @@ class DevicesController : UITableViewController, CBCentralManagerDelegate {
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         bleScanStarted(self)
+        centralManager.connectPeripheral(peripherals[indexPath.row].peripheral, options: nil)
+    }
+    
+    func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
+        bleScanStarted(self)
         var sc = storyboard.instantiateViewControllerWithIdentifier("ServicesController") as ServicesController
-        sc.peripheral = peripherals[indexPath.row].peripheral
+        sc.peripheral = peripheral
         self.navigationController.pushViewController(sc, animated: true)
+    }
+    
+    func centralManager(central: CBCentralManager!, didFailToConnectPeripheral peripheral: CBPeripheral!, error: NSError!) {
+        var alert = UIAlertView()
+        alert.title = "Error"
+        alert.message = "Cannot connect to \(peripheral.name)"
+        alert.show()
     }
 }
