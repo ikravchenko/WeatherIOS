@@ -12,8 +12,8 @@ import CoreData
 
 class MainController: UITableViewController, NSXMLParserDelegate {
     
-    var weatherEntries: Array<WeatherEntry> = Array<WeatherEntry>()
-    var fetchedObjects: Array<NSManagedObject> = Array<NSManagedObject>()
+    var weatherEntries = Array<WeatherEntry>()
+    var fetchedObjects = Array<NSManagedObject>()
     var context: NSManagedObjectContext!
     
     
@@ -115,7 +115,7 @@ class MainController: UITableViewController, NSXMLParserDelegate {
         let entity = NSEntityDescription.entityForName("Weather", inManagedObjectContext: self.context)
         fetchRequest.entity = entity
         
-        fetchRequest.fetchBatchSize = 1
+        fetchRequest.fetchBatchSize = 45
         
         let sortDescriptor = NSSortDescriptor(key: "from", ascending: true)
         let sortDescriptors = [sortDescriptor]
@@ -127,13 +127,7 @@ class MainController: UITableViewController, NSXMLParserDelegate {
     
     func reloadData() {
         fetchedObjects = fetchAllWeatherEntries()
-        if NSThread.isMainThread() {
-            self.tableView.reloadData()
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-        }
+        ExecutionUtils.executeInMainThread({self.tableView.reloadData()})
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {

@@ -65,13 +65,7 @@ class CharactericticsController : UITableViewController, CBPeripheralDelegate {
     
     func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
         println("didUpdateValueForCharacteristic, error:\(error), value:\(characteristic.value)")
-        if NSThread.isMainThread() {
-            self.tableView.reloadData()
-        } else {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-        }
+        ExecutionUtils.executeInMainThread({self.tableView.reloadData()})
     }
     
     override func viewWillDisappear(animated: Bool) {
