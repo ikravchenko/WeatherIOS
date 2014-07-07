@@ -65,7 +65,7 @@ class MainController: UITableViewController, NSXMLParserDelegate {
     func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!,attributes attributeDict: NSDictionary!) {
         if (elementName == "time") {
             current = WeatherEntry()
-            weatherEntries.append(current!)
+            weatherEntries+=current!
             var formatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             current!.from = formatter.dateFromString(attributeDict["from"] as String)

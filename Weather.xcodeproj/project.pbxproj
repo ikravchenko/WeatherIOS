@@ -28,6 +28,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CD0588D4196AD73600D92728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5E6F3E195AF2780015A01E;
+			remoteInfo = Weather;
+		};
+		CD0588D6196AD84C00D92728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5E6F3E195AF2780015A01E;
+			remoteInfo = Weather;
+		};
+		CD0588D8196AD84C00D92728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5E6F3E195AF2780015A01E;
+			remoteInfo = Weather;
+		};
+		CD0588DA196AD85300D92728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5E6F3E195AF2780015A01E;
+			remoteInfo = Weather;
+		};
+		CD0588DC196AE67500D92728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5E6F3E195AF2780015A01E;
+			remoteInfo = Weather;
+		};
+		CD0588DE196AE6F600D92728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD5E6F3E195AF2780015A01E;
+			remoteInfo = Weather;
+		};
 		CD5E6F55195AF2790015A01E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CD5E6F37195AF2780015A01E /* Project object */;
@@ -222,6 +264,12 @@
 			);
 			dependencies = (
 				CD5E6F56195AF2790015A01E /* PBXTargetDependency */,
+				CD0588D5196AD73600D92728 /* PBXTargetDependency */,
+				CD0588D7196AD84C00D92728 /* PBXTargetDependency */,
+				CD0588D9196AD84C00D92728 /* PBXTargetDependency */,
+				CD0588DB196AD85300D92728 /* PBXTargetDependency */,
+				CD0588DD196AE67500D92728 /* PBXTargetDependency */,
+				CD0588DF196AE6F600D92728 /* PBXTargetDependency */,
 			);
 			name = WeatherTests;
 			productName = WeatherTests;
@@ -314,6 +362,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CD0588D5196AD73600D92728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5E6F3E195AF2780015A01E /* Weather */;
+			targetProxy = CD0588D4196AD73600D92728 /* PBXContainerItemProxy */;
+		};
+		CD0588D7196AD84C00D92728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5E6F3E195AF2780015A01E /* Weather */;
+			targetProxy = CD0588D6196AD84C00D92728 /* PBXContainerItemProxy */;
+		};
+		CD0588D9196AD84C00D92728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5E6F3E195AF2780015A01E /* Weather */;
+			targetProxy = CD0588D8196AD84C00D92728 /* PBXContainerItemProxy */;
+		};
+		CD0588DB196AD85300D92728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5E6F3E195AF2780015A01E /* Weather */;
+			targetProxy = CD0588DA196AD85300D92728 /* PBXContainerItemProxy */;
+		};
+		CD0588DD196AE67500D92728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5E6F3E195AF2780015A01E /* Weather */;
+			targetProxy = CD0588DC196AE67500D92728 /* PBXContainerItemProxy */;
+		};
+		CD0588DF196AE6F600D92728 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD5E6F3E195AF2780015A01E /* Weather */;
+			targetProxy = CD0588DE196AE6F600D92728 /* PBXContainerItemProxy */;
+		};
 		CD5E6F56195AF2790015A01E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CD5E6F3E195AF2780015A01E /* Weather */;
@@ -421,7 +499,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weather/Weather-Bridging-Header.h";
@@ -436,7 +514,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Weather/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weather/Weather-Bridging-Header.h";
@@ -459,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weather/Weather-Briding-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -475,6 +554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weather/Weather-Briding-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
