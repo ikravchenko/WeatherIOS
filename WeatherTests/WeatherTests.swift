@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Weather
 
 class WeatherTests: XCTestCase {
     
@@ -32,4 +33,9 @@ class WeatherTests: XCTestCase {
         }
     }
     
+    func testExecuteMainInMain() {
+        ExecutionUtils.executeInMainThread({
+            XCTAssert({NSThread.currentThread() == NSThread.mainThread()}(), "thread is not main")
+            })
+    }
 }

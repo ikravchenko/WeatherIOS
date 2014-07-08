@@ -7,6 +7,7 @@
 //
 
 #import "BLEUtils.h"
+#import "ObjCtoCPlusPlus.h"
 
 @implementation BLEUtils
 
@@ -28,6 +29,7 @@
 
 +(NSString *) decodeHRLocation:(NSData *)data
 {
+    [Performance_ObjCtoCPlusPlus sortArrayCPlusPlus: 18];
     const uint8_t *location = [data bytes];
     NSString *hrmLocation;
     switch (location[0]) {

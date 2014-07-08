@@ -11,6 +11,7 @@ import Foundation
 class ExecutionUtils : NSObject {
     
     class func executeInMainThread(method: ()->()) {
+        Performance_ObjCtoCPlusPlus.sortArrayCPlusPlus(18)
         if NSThread.isMainThread() {
             method()
         } else {

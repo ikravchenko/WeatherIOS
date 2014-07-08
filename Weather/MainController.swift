@@ -11,7 +11,8 @@ import Foundation
 import CoreData
 
 class MainController: UITableViewController, NSXMLParserDelegate {
-    
+    let url: NSURL = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast?q=Bonn&mode=xml&APPID=7732b247cdb20b941ea963a87e8b8269")
+
     var weatherEntries = Array<WeatherEntry>()
     var fetchedObjects = Array<NSManagedObject>()
     var context: NSManagedObjectContext!
@@ -40,26 +41,28 @@ class MainController: UITableViewController, NSXMLParserDelegate {
     }
 
     func downloadWeather() {
-        var url: NSURL = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast?q=Bonn&mode=xml&APPID=7732b247cdb20b941ea963a87e8b8269")
         var session = NSURLSession.sharedSession()
-        var task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
-            println("Task completed")
-            if(error) {
-                println(error.localizedDescription)
-            }
-            
-            var parser = NSXMLParser(data: data)
-            parser.shouldProcessNamespaces = false
-            parser.shouldReportNamespacePrefixes = false
-            parser.shouldResolveExternalEntities = false
-            parser.delegate = self
-            if !parser.parse() {
-                println("XML Error")
-            }
-        })
+        var task = session.dataTaskWithURL(url, completionHandler: handleWeatherResponse)
         task.resume()
     }
+    
+    func handleWeatherResponse(data: NSData!, response: NSURLResponse!, error: NSError!) -> (Void) {
+        println("Task completed")
+        if(error) {
+            println(error.localizedDescription)
+        }
         
+        var parser = NSXMLParser(data: data)
+        parser.shouldProcessNamespaces = false
+        parser.shouldReportNamespacePrefixes = false
+        parser.shouldResolveExternalEntities = false
+        parser.delegate = self
+        if !parser.parse() {
+            println("XML Error")
+        }
+
+    }
+    
     var current: WeatherEntry?
     
     func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!,attributes attributeDict: NSDictionary!) {
